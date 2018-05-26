@@ -1,0 +1,18 @@
+name: ExpControl
+version: 1.0
+main: AT.MSev.ExpControl.ExpControl
+commands:
+   SetXpMod:
+         description: Sets the multiplier of experience remaining after death.
+         usage: /SetXpMod [Mod]
+         permission: ExpControl.Commands
+         permission-message: You don't have <permission>
+   SetXpDrop:
+         description: Sets if xp should be dropped after death.
+         usage: /SetXpDrop [Drop]
+         permission: ExpControl.Commands
+         permission-message: You don't have <permission>
+permissions:
+    ExpControl.Commands:
+        description: Allows you to use ExpControl commands
+        default: op
