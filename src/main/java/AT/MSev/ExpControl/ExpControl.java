@@ -8,13 +8,11 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ExpControl extends JavaPlugin {
-    public static NamespacedKey key;
     public static float ExpMulitplier;
     public static Boolean ExpDrop;
     public static ExpControl config;
     @Override
     public void onEnable() {
-        key = new NamespacedKey(this, this.getDescription().getName());
         config = this;
 
         saveDefaultConfig();
@@ -23,9 +21,9 @@ public class ExpControl extends JavaPlugin {
         ExpDrop = (Boolean) getConfig().get("ExpDrop");
 
         getLogger().info("ExpMulitplier set to " + ExpMulitplier + ". Exp will be dropped: " + ExpDrop.toString());
-
-        this.getCommand("SetXpMod").setExecutor(new CommandControl());
-        this.getCommand("SetXpDrop").setExecutor(new CommandControl());
+        CommandControl cc = new CommandControl();
+        this.getCommand("SetXpMod").setExecutor(cc);
+        this.getCommand("SetXpDrop").setExecutor(cc);
 
         getServer().getPluginManager().registerEvents(new Handler(), this);
     }

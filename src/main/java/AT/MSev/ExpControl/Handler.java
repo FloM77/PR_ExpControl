@@ -3,6 +3,7 @@ package AT.MSev.ExpControl;
 import org.bukkit.entity.ExperienceOrb;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
@@ -17,6 +18,8 @@ public class Handler implements Listener {
         float expHad = exp.getTotalExperience();
         float expNew = expHad * ExpControl.ExpMulitplier;
 
+        e.setDroppedExp(0);
+
         if(!ExpControl.ExpDrop) {
             e.setNewExp((int) (expNew));
             getLogger().info(player.getDisplayName() + " died with " + expHad + ". They will respawn with " + expNew);
@@ -27,8 +30,5 @@ public class Handler implements Listener {
             orb.setExperience((int) (expNew));
             getLogger().info(player.getDisplayName() + " died with " + expHad + ". They will drop " + expNew);
         }
-
-        if(!ExpControl.ExpDrop)
-        {e.setDroppedExp(0);}
     }
 }

@@ -1,5 +1,5 @@
 name: ExpControl
-version: 1.0
+version: 1.2
 main: AT.MSev.ExpControl.ExpControl
 commands:
    SetXpMod:
